@@ -1,4 +1,4 @@
-package com.example.gatewayserver;
+package com.example.gatewayserver.filter;
 
 import lombok.Getter;
 
