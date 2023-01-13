@@ -1,16 +1,19 @@
-
-server:
-  port: 8090
-
-# 각각의 마이크로서비스에 고유한 아이디
+#
+#server:
+#  port: 8090
+#
+## 각각의 마이크로서비스에 고유한 아이디
 spring:
   application:
-    name: discoverservice
+    name: eureka-server
+  config:
+    import: optional:configserver:http://localhost:9900 # config server
+#
+## eureka 라이브러리가 포함된 채 스프링부트가 구동이 되면
+## 기본적으로 eureka 클라이언트의 역할로서 어딘가에 등록하는 작업을 시도
+## 클라이언트 역할로 자동으로 등록되는 세팅을 막아주는 설정
+#eureka:
+#  client:
+#    register-with-eureka: false # 본 서버는 유레카 디스커버리 서버이므로 자신을 클라언트로 등록하지 않음
+#    fetch-registry: false # 유레카 디스크커버리 서버에서 리스트 정보를 로컬에 caching 할지 여부
 
-# eureka 라이브러리가 포함된 채 스프링부트가 구동이 되면
-# 기본적으로 eureka 클라이언트의 역할로서 어딘가에 등록하는 작업을 시도
-# 클라이언트 역할로 자동으로 등록되는 세팅을 막아주는 설정
-eureka:
-  client:
-    register-with-eureka: false # 본 서버는 유레카 디스커버리 서버이므로 자신을 클라언트로 등록하지 않음
-    fetch-registry: false # 유레카 디스크커버리 서버에서 리스트 정보를 로컬에 caching 할지 여부
