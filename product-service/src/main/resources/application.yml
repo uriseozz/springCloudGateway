@@ -1,3 +1,14 @@
-
 server:
   port: 8082
+
+# 각각의 마이크로서비스에 고유한 아이디
+spring:
+  application:
+    name: product-service
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8090/eureka
