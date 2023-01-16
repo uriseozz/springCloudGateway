@@ -46,3 +46,9 @@ spring:
                 baseMessage: ProductFilter
                 preLogger: true
                 postLogger: true
+
+management: #actuator
+  endpoints:
+    web:
+      exposure:
+        include: "*"
